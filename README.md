@@ -1,6 +1,6 @@
-# Bajaj Prime Offer - CashKaro Promotion Page
+# Bajaj Prime Offer Promotion Page
 
-This is a simple web application to promote the Bajaj Prime offer from CashKaro. It tracks user clicks, displays a tutorial video, and provides a link to a Google form for users to update their details after completing a transaction.
+This is a simple web application to promote the Bajaj Prime offer. It tracks user clicks, displays a tutorial video, and provides a link to a Google form for users to update their details after completing a transaction.
 
 ## Features
 
@@ -54,7 +54,7 @@ For server-side tracking with Netlify:
 1. When a user visits the page, a unique user ID is generated and stored in their browser's localStorage.
 2. When they click on the "Go to Bajaj Prime Offer" button:
    - Their user ID is logged and stored in localStorage
-   - They are redirected to the Bajaj Prime coupon page on CashKaro
+   - They are redirected to the Bajaj Prime offer page
 3. After completing their transaction, users can click on the "Complete Google Form" button to fill out their details.
 
 ## Files
