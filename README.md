@@ -12,21 +12,40 @@ This is a simple web application to promote the Bajaj Prime offer from CashKaro.
 
 ## Setup Instructions
 
-### Prerequisites
+### Local Setup
 
-- Web server with PHP support (for the tracking functionality)
+- Web server with PHP support (optional for full tracking functionality)
 - Basic knowledge of HTML, CSS, and JavaScript
 
-### Installation
+### Netlify Deployment
 
-1. Upload all files to your web server
-2. Ensure the `click_logs.txt` file (which will be created) has write permissions
-3. Update the YouTube video ID in `index.html` with your tutorial video:
-   - Replace `VIDEO_ID_HERE` in the iframe src with your actual YouTube video ID
+This site is configured for easy deployment on Netlify. Follow these steps:
+
+1. Sign up for a [Netlify account](https://app.netlify.com/signup) if you don't have one
+2. Go to https://app.netlify.com/start
+3. Select "Deploy with GitHub" and connect to your GitHub account
+4. Choose the repository `bajajprimememrbeship`
+5. Use the following settings:
+   - Build command: (leave blank)
+   - Publish directory: `.`
+6. Click "Deploy Site"
+
+After deployment, you can:
+- Configure a custom domain in the Netlify dashboard
+- Set up Netlify Functions for server-side tracking (see advanced setup)
+
+### Advanced Setup: Netlify Functions for Tracking
+
+For server-side tracking with Netlify:
+
+1. Create a `netlify/functions` directory
+2. Add a serverless function for tracking
+3. Uncomment the Netlify Functions code in `js/main.js`
 
 ### Customization
 
-- **Tracking Endpoint**: By default, the application uses `track-click.php` to track user clicks. You can modify the tracking logic in the `js/main.js` file to use a different endpoint or tracking method.
+- **YouTube Video**: Update the YouTube video ID in `index.html` with your tutorial video:
+   - Replace `VIDEO_ID_HERE` in the iframe src with your actual YouTube video ID
 - **Styling**: Customize the look and feel by modifying the `css/styles.css` file.
 - **Content**: Update the content in `index.html` to match your specific offer details.
 
@@ -34,7 +53,7 @@ This is a simple web application to promote the Bajaj Prime offer from CashKaro.
 
 1. When a user visits the page, a unique user ID is generated and stored in their browser's localStorage.
 2. When they click on the "Go to Bajaj Prime Offer" button:
-   - Their user ID is logged (both in the browser console and sent to the server)
+   - Their user ID is logged and stored in localStorage
    - They are redirected to the Bajaj Prime coupon page on CashKaro
 3. After completing their transaction, users can click on the "Complete Google Form" button to fill out their details.
 
@@ -43,8 +62,7 @@ This is a simple web application to promote the Bajaj Prime offer from CashKaro.
 - `index.html`: Main HTML file with the page structure
 - `css/styles.css`: CSS styles for the page
 - `js/main.js`: JavaScript code for user tracking and link functionality
-- `track-click.php`: PHP script to log user clicks on the server
-- `click_logs.txt`: Text file that stores the click logs (created automatically)
+- `netlify.toml`: Configuration file for Netlify deployment
 
 ## Note
 

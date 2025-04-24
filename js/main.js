@@ -17,41 +17,31 @@ document.addEventListener('DOMContentLoaded', function() {
         // Log the click with the user ID
         console.log(`User ${userId} clicked on the offer link`);
         
-        // In a real application, you would send this data to a server
-        // Here's an example of how you might do that with fetch API
-        try {
-            // This is a placeholder for your actual tracking endpoint
-            fetch('track-click.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    userId: userId,
-                    timestamp: new Date().toISOString(),
-                    offer: 'bajaj-prime'
-                })
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Click tracked successfully');
-                }
-            })
-            .catch(error => {
-                console.error('Error tracking click:', error);
-            });
-        } catch (error) {
-            console.error('Error tracking click:', error);
-        }
-        
-        // Save click data to localStorage as a fallback
+        // Save click data to localStorage
         const clicks = JSON.parse(localStorage.getItem('userClicks') || '[]');
-        clicks.push({
+        const clickData = {
             userId: userId,
             timestamp: new Date().toISOString(),
             offer: 'bajaj-prime'
-        });
+        };
+        
+        clicks.push(clickData);
         localStorage.setItem('userClicks', JSON.stringify(clicks));
+        
+        // For Netlify deployment - we can use Netlify functions instead of PHP
+        // Uncomment this if you set up Netlify functions later
+        /*
+        fetch('/.netlify/functions/track-click', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(clickData)
+        })
+        .then(response => response.json())
+        .then(data => console.log('Success:', data))
+        .catch(error => console.error('Error:', error));
+        */
         
         // Redirect the user to the target URL
         window.open(targetUrl, '_blank');
