@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // The target URL
-    const targetUrl = 'http://tracking.cashkaro.com/visitretailer/24625?id=15960912&mode=direct';
+    const targetUrl = 'https://www.bajajfinserv.in/webform/v1/rewards/bajaj-prime?utm_source=EEE&utm_medium=TQ_588_45&utm_campaign=680a106e1d1183034149dce2';
     
     // Generate a random user ID if one doesn't exist in localStorage
     if (!localStorage.getItem('userId')) {
